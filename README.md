@@ -85,7 +85,7 @@ This library uses a standard Laravel Eloquent model, so you can therefore query 
 use \LaravelSendgridEvents\Models\SendgridEvent;
 
 /**
-...
+* ...
 */
 
 // Get all records:
