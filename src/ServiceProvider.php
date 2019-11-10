@@ -35,7 +35,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../config/sendgridevents.php' => config_path('sendgridevents.php')
-        ]);
+        ], 'config');
         $this->publishes([
             __DIR__ . '/../database/migrations' => database_path('migrations')
         ], 'migrations');
