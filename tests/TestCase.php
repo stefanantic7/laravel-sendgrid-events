@@ -3,10 +3,7 @@
 namespace Tests;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use LaravelSendgridEvents\Events\SendgridEventCreated;
-use LaravelSendgridEvents\Repositories\SendgridEventRepository;
-use LaravelSendgridEvents\Repositories\SendgridEventRepositoryInterface;
-use LaravelSendgridEvents\ServiceProvider;
+use Antiques\LaravelSendgridEvents\ServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {

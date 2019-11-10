@@ -4,8 +4,8 @@ namespace Tests;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Event;
-use LaravelSendgridEvents\Events\SendgridEventCreated;
-use LaravelSendgridEvents\Models\SendgridEvent;
+use Antiques\LaravelSendgridEvents\Events\SendgridEventCreated;
+use Antiques\LaravelSendgridEvents\Models\SendgridEvent;
 
 class RequestTest extends TestCase
 {

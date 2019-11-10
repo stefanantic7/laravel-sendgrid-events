@@ -1,10 +1,9 @@
 <?php
 
-namespace LaravelSendgridEvents\Models;
+namespace Antiques\LaravelSendgridEvents\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use LaravelSendgridEvents\Events\SendgridEventCreated;
 
 /**
  * Class SendgridEvent

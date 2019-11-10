@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelSendgridEvents\Events;
+namespace Antiques\LaravelSendgridEvents\Events;
 
 
 use Illuminate\Queue\SerializesModels;
-use LaravelSendgridEvents\Models\SendgridEvent;
+use Antiques\LaravelSendgridEvents\Models\SendgridEvent;
 
 /**
  * Class SendgridEventCreated.

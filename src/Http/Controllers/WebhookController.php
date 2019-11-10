@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelSendgridEvents\Http\Controllers;
+namespace Antiques\LaravelSendgridEvents\Http\Controllers;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
-use LaravelSendgridEvents\Enums\EventEnum;
-use LaravelSendgridEvents\Events\SendgridEventCreated;
-use LaravelSendgridEvents\Models\SendgridEvent;
-use LaravelSendgridEvents\Repositories\SendgridEventRepositoryInterface;
+use Antiques\LaravelSendgridEvents\Enums\EventEnum;
+use Antiques\LaravelSendgridEvents\Events\SendgridEventCreated;
+use Antiques\LaravelSendgridEvents\Models\SendgridEvent;
+use Antiques\LaravelSendgridEvents\Repositories\SendgridEventRepositoryInterface;
 use Psr\Log\LogLevel;
 
 /**

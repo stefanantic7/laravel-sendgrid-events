@@ -1,10 +1,10 @@
 <?php
 
 
-namespace LaravelSendgridEvents\Repositories;
+namespace Antiques\LaravelSendgridEvents\Repositories;
 
 
-use LaravelSendgridEvents\Models\SendgridEvent;
+use Antiques\LaravelSendgridEvents\Models\SendgridEvent;
 
 /**
  * Class SendgridEventRepositoryDisabled

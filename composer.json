@@ -1,5 +1,5 @@
 {
-    "name": "stefanantic7/laravel-sendgrid-events",
+    "name": "antiques/laravel-sendgrid-events",
     "description": "Laravel package for receiving, storing and handling events from Sendgrid webhook",
     "type": "library",
     "license": "MIT",
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelSendgridEvents\\": "src/",
+            "Antiques\\LaravelSendgridEvents\\": "src/",
             "Tests\\": "tests/"
         }
     },
@@ -25,7 +25,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelSendgridEvents\\ServiceProvider"
+                "Antiques\\LaravelSendgridEvents\\ServiceProvider"
             ]
         }
     },

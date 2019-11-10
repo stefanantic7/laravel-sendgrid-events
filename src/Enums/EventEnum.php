@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelSendgridEvents\Enums;
+namespace Antiques\LaravelSendgridEvents\Enums;
 
 /**
  * Class EventEnum

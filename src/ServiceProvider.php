@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelSendgridEvents;
+namespace Antiques\LaravelSendgridEvents;
 
-use LaravelSendgridEvents\Repositories\SendgridEventRepository;
-use LaravelSendgridEvents\Repositories\SendgridEventRepositoryDisabled;
-use LaravelSendgridEvents\Repositories\SendgridEventRepositoryInterface;
+use Antiques\LaravelSendgridEvents\Repositories\SendgridEventRepository;
+use Antiques\LaravelSendgridEvents\Repositories\SendgridEventRepositoryDisabled;
+use Antiques\LaravelSendgridEvents\Repositories\SendgridEventRepositoryInterface;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -24,7 +24,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         else {
             $this->app->bind(SendgridEventRepositoryInterface::class, SendgridEventRepositoryDisabled::class);
         }
-
     }
 
     /**
