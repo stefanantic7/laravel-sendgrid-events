@@ -9,29 +9,37 @@ actions.
 
 ### Getting the package
 
-TODO
+```shell script
+composer require antiques/laravel-sendgrid-events
+```
 
-### Copy the migrations files (optional)
 
-TODO
+### Copy the config file (optional)
+
+This library works without any local configuration, however you may want to use the config file in order to tweak the logs you receive. (eg. to receive logs when you receive duplicate events or to enable event storing in the database). 
+
+Call the command below to copy the package config files:
+```php
+php artisan vendor:publish --provider="Antiques\LaravelSendgridEvents\ServiceProvider" --tag=config
+```
 
 ### Run the migrations (optional)
 
-This package will create a table called `sendgrid_webhook_events` which will be used to store all the Sendgrid webhooks received.
-
-Once you have included the package, this migration will run automatically with your normal migrations, so just call:
+Into config file `sendgridevents.php`, the option that handle storing events `store_events_into_database` is disabled by default and migrations will not run automatically.
+If `store_events_into_database` is enabled, migrations will be registered and you should run:
 
 ```php
 php artisan migrate
 ```
 
-### Copy the config file (optional)
+After that, all events sent by Sendgrid will be automatically stored in the database.
 
-This library works without any local configuration, however you may want to use the config file in order to tweak the logs you receive (eg. to receive logs when you receive duplicate events). 
+### Copy the migrations files (optional)
 
-Call the command below to copy the package config files:
+You are able to configure migrations on your way by running:
+
 ```php
-php artisan vendor:publish --provider="LaravelSendgridEvents\ServiceProvider"
+php artisan vendor:publish --provider="Antiques\LaravelSendgridEvents\ServiceProvider" --tag=migrations
 ```
 
 ### Tell Sendgrid to use your new event webhook URL
@@ -45,7 +53,28 @@ Your HTTP Post URL is: `https://yourwebsite.com/sendgrid/webhook`
 
 ### Listen to events
 
-TODO
+Each time new event is registered the package will trigger `\Antiques\LaravelSendgridEvents\Events\SendgridEventCreated`.
+Based on that, you could define listeners in your EventServiceProvider and handle further logic.
+
+```php
+public function handle(SendgridEventCreated $sendgridEventCreated)
+{
+    $eventType = $sendgridEventCreated->getEventType(); //click, open...
+
+    /**
+     * ...
+     */
+    
+    $sendgridEvent = $sendgridEventCreated->getSendgridEvent();
+    $sendgridEvent->email;
+    $sendgridEvent->timestamp;
+    
+    /**
+     * ...
+     */
+}
+```
+
 
 ### Querying records
 
@@ -55,7 +84,9 @@ This library uses a standard Laravel Eloquent model, so you can therefore query 
 // Include the class
 use \LaravelSendgridEvents\Models\SendgridEvent;
 
-////////////////////
+/**
+...
+*/
 
 // Get all records:
 SendgridEvent::all();
