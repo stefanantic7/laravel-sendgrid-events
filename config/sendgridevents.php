@@ -53,5 +53,12 @@ return [
     /**
      * Webhook URL on which Sendgrid post events.
      */
-    'webhook_url' => 'sendgrid/webhook'
+    'webhook_url' => 'sendgrid/webhook',
+
+    /**
+     * A secret key that will be checked on each request from Sendgrid.
+     * URL should be: https://yourwebsite.com/sendgrid/webhook?key=[url_secret_key]
+     * If the key is not set, then it will not be checked.
+     */
+    'url_secret_key' => null
 ];

@@ -47,7 +47,7 @@ class WebhookController extends Controller
      */
     public function post(Request $request)
     {
-        $payload = $request->input();
+        $payload = $request->json()->all();
         $validator = Validator::make(
             $payload,
             [

@@ -198,6 +198,30 @@ class RequestTest extends TestCase
         $this->assertEquals($category, $newEvent->categories[0], 'Category should be saved in $categories');
     }
 
+    public function testRequestWithValidKeyShouldBeSuccessful()
+    {
+        config()->set('sendgridevents.url_secret_key', 'key123');
+
+        /** @var \Illuminate\Foundation\Testing\TestResponse $result */
+        $result = $this->postJson(
+            config('sendgridevents.webhook_url').'?key=key123'
+        );
+
+        $result->assertStatus(200);
+    }
+
+    public function testRequestWithInvalidKeyShouldBeRejected()
+    {
+        config()->set('sendgridevents.url_secret_key', 'key123');
+
+        /** @var \Illuminate\Foundation\Testing\TestResponse $result */
+        $result = $this->postJson(
+            config('sendgridevents.webhook_url').'?key=wrong-key'
+        );
+
+        $result->assertStatus(401);
+    }
+
     public function testPayloadWithUnknownEventShouldBeRejected()
     {
         $payload = [[
