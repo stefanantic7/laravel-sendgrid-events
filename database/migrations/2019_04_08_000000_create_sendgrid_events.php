@@ -15,14 +15,13 @@ class CreateSendgridEvents extends Migration
     {
         Schema::create(config('sendgridevents.events_table_name'), function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
-
             $table->timestamp('timestamp')->nullable();
             $table->string('email')->index();
             $table->string('event')->index();
             $table->string('sg_event_id')->unique();
             $table->string('sg_message_id')->index();
             $table->jsonb('payload');
+            $table->timestamps();
         });
 
         $connection = config('sendgridevents.database_connection_for_events');
@@ -34,8 +33,8 @@ class CreateSendgridEvents extends Migration
         switch ($driver) {
             case 'mysql': {
                 Schema::table(config('sendgridevents.events_table_name'), function (Blueprint $table) {
-                    $table->jsonb('categories')->default(json_encode([]));
-                    $table->index([DB::raw('categories(767)')], 'categories_index');
+                    $table->jsonb('categories')
+                        ->after('sg_message_id');
                 });
 
                 break;
@@ -43,7 +42,10 @@ class CreateSendgridEvents extends Migration
 
             default: {
                 Schema::table(config('sendgridevents.events_table_name'), function (Blueprint $table) {
-                    $table->jsonb('categories')->default(json_encode([]))->index();
+                    $table->jsonb('categories')
+                        ->after('sg_message_id')
+                        ->default(json_encode([]))
+                        ->index();
                 });
 
                 break;
