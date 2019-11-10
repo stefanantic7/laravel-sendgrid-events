@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        processIsolation="false"
+        stopOnFailure="false"
+>
+    <testsuites>
+        <testsuite name="Laravel Sendgrid Events Test Suite">
+            <directory suffix=".php">./tests/</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+<!--        <env name="APP_KEY" value="AAAAAAAA"/>-->
+        <env name="APP_ENV" value="testing"/>
+        <env name="DB_CONNECTION" value="testing"/>
+    </php>
+</phpunit>

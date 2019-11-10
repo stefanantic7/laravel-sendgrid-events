@@ -1,0 +1,37 @@
+{
+    "name": "stefanantic7/laravel-sendgrid-events",
+    "description": "Laravel package for receiving, storing and handling events from Sendgrid webhook",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stefan Antic",
+            "email": "stefanantic7@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "ext-json": "*",
+        "sendgrid/sendgrid": "~7"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelSendgridEvents\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelSendgridEvents\\ServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "laravel/framework": "~5.8.3",
+        "orchestra/testbench": "^3.8",
+        "phpunit/phpunit": "^7.5"
+    }
+}
