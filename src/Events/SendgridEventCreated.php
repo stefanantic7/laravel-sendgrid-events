@@ -13,8 +13,6 @@ use Antiques\LaravelSendgridEvents\Models\SendgridEvent;
  */
 class SendgridEventCreated
 {
-    use SerializesModels;
-
     /** @var SendgridEvent */
     private $sendgridEvent;
 
