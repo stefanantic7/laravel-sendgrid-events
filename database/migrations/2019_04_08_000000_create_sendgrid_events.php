@@ -34,7 +34,8 @@ class CreateSendgridEvents extends Migration
             case 'mysql': {
                 Schema::table(config('sendgridevents.events_table_name'), function (Blueprint $table) {
                     $table->jsonb('categories')
-                        ->after('sg_message_id');
+                        ->after('sg_message_id')
+                        ->nullable();
                 });
 
                 break;
@@ -45,7 +46,8 @@ class CreateSendgridEvents extends Migration
                     $table->jsonb('categories')
                         ->after('sg_message_id')
                         ->default(json_encode([]))
-                        ->index();
+                        ->index()
+                        ->nullable();
                 });
 
                 break;
